@@ -187,6 +187,45 @@ print(transposed_arr)
 
 It’s like turning your array into its mirror image!
 
+## 😅 Troubleshooting Common Errors
+
+Even the best of us run into errors sometimes. Let’s tackle a common one you might see:
+
+### 🚨 `ValueError: assignment destination is read-only`
+
+This error happens when you try to modify an array that is flagged as read-only. Here’s how to fix it:
+
+#### Solution 1: Make the Array Writable
+
+```python
+pic_array.setflags(write=True)
+pic_array[:,:,1] = 0
+```
+
+#### Solution 2: Copy the Array
+
+```python
+pic_array_copy = pic_array.copy()
+pic_array_copy[:,:,1] = 0
+```
+
+#### Solution 3: Check How the Array Was Loaded
+
+If you loaded the array from an image or file, ensure you load it in a writable format:
+
+```python
+pic_array = np.array(img, copy=True)
+```
+
+#### Solution 4: Ensure No Overlapping Memory
+
+Ensure the array is contiguous in memory:
+
+```python
+pic_array = np.ascontiguousarray(pic_array)
+pic_array[:,:,1] = 0
+```
+
 ## 🎉 Congratulations!
 
 You’ve taken your first steps into the world of NumPy! 🎓 With these basics, you’re ready to explore the vast possibilities NumPy offers. Keep experimenting, and remember – the more you play, the more you learn.
@@ -196,6 +235,4 @@ For more awesome tricks and deep dives, check out the official [NumPy Documentat
 Happy coding, and may the NumPy be with you! 🧙‍♂️
 ```
 
-### What’s Next?
-
-If you'd like to see specific content from the Jupyter notebook incorporated into this README or further customize it, I can help with that too! Just let me know how you’d like to proceed.
+This updated README now includes a troubleshooting section that addresses the `ValueError: assignment destination is read-only` error, providing clear and actionable solutions to resolve it. If you want further customization or have additional content to add, just let me know!
