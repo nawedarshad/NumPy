@@ -1,4 +1,3 @@
-```markdown
 # Welcome to the Wonderful World of NumPy! 🎉
 
 Hey there, future data wizard! 🧙‍♂️ Ready to dive into the magic of NumPy? Whether you're just starting out or brushing up on your skills, this guide will walk you through the basics of NumPy in a fun and easy-to-follow way.
